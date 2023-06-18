@@ -6,9 +6,9 @@ const nextConfig = {
     domains: ["avatars.githubusercontent.com", "seeklogo.com", "cdn.sanity.io"],
   },
   env: {
-    SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
-    SANITY_TOKEN_ID: process.env.SANITY_TOKEN_ID,
-    SERVER_URL: process.env.SERVER_URL,
+    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    NEXT_PUBLIC_SANITY_TOKEN_ID: process.env.NEXT_PUBLIC_SANITY_TOKEN_ID,
+    NEXT_PUBLIC_SERVER_URL: process.env.NEXT_PUBLIC_SERVER_URL,
   },
 };
 

@@ -1,4 +1,4 @@
-const SERVER_URL = process.env.SERVER_URL;
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
 
 export async function fetchWrapper<T>(url: string, init?: RequestInit) {
   const response = await fetch(SERVER_URL + url, {
