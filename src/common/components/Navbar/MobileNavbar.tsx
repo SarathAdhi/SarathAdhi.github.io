@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useDimensions } from "@hooks/use-dimensions";
 import { cn } from "@lib/utils";
 import { usePathname, useSearchParams } from "next/navigation";
+import ThemeButton from "@components/ThemeButton";
 
 const variants_ul = {
   open: {
@@ -49,7 +50,7 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
   />
 );
 
-export const MobileNavbar = () => {
+export const MobileNavbar = ({ _theme = "dark" }) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
@@ -119,7 +120,7 @@ export const MobileNavbar = () => {
                   href={href}
                   onClick={() => toggleOpen()}
                   className={cn(
-                    "text-lg py-2 px-4 transition-all bg-black dark:bg-white dark:text-black border-2 border-black hover:!opacity-100 hover:!text-white group-hover:bg-transparent group-hover:text-gray-500 group-hover:opacity-60 duration-300 hover:!bg-purple-600 rounded-full",
+                    "text-lg py-2 px-4 transition-all bg-black dark:bg-white text-white dark:text-black border-2 border-black hover:!text-white group-hover:bg-transparent group-hover:text-gray-700 group-hover:dark:text-gray-500 duration-300 hover:!bg-purple-600 rounded-full",
                     pathname.includes(href) && "!bg-purple-600 !text-white"
                   )}
                 >
@@ -127,6 +128,17 @@ export const MobileNavbar = () => {
                 </Link>
               </motion.li>
             ))}
+
+            <motion.div
+              variants={variants_li}
+              whileHover={{ scale: 1.1, x: -10 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ThemeButton
+                className="!bg-foreground !text-background"
+                {...{ _theme }}
+              />
+            </motion.div>
           </motion.ul>
         )}
       </AnimatePresence>

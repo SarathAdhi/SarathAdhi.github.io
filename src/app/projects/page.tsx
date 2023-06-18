@@ -2,6 +2,13 @@ import WavyText from "@components/WavyText";
 import { client, urlFor } from "@lib/client";
 import React from "react";
 import ProjectsCard from "./(components)/ProjectsCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Sarath Adhithya",
+  description:
+    "Explore my portfolio of projects aimed at enhancing my skills and expertise.",
+};
 
 export const revalidate = 60; // revalidate this page every 60 seconds
 

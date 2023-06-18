@@ -8,7 +8,7 @@ import ThemeButton from "@components/ThemeButton";
 const Navbar = ({ theme = "dark" }) => {
   return (
     <>
-      <MobileNavbar />
+      <MobileNavbar {...{ _theme: theme }} />
 
       <header className="z-[9999] fixed bottom-4 left-0 right-0 hidden md:flex items-center gap-2 justify-center">
         <div className="p-2 flex items-center rounded-full bg-black text-white">

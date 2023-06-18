@@ -9,7 +9,7 @@ const MarkDown: React.FC<Props> = ({ ...props }) => {
     <MDXRemote
       {...props}
       components={{
-        p: (props) => <p {...props} className="text-justify sm:text-center" />,
+        p: (props) => <p {...props} className="text-justify" />,
         li: (props) => <li {...props} className="mt-2" />,
       }}
     />

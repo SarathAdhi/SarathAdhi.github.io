@@ -77,6 +77,7 @@ const ContactSection = () => {
         <Input
           label="Name"
           name="name"
+          placeholder="Sarath Adhithya"
           value={from_name}
           onChange={(e) =>
             setDetails({
@@ -90,6 +91,7 @@ const ContactSection = () => {
         <Input
           label="Email"
           name="email"
+          placeholder="s.sarathadhithya@gmail.com"
           value={from_email}
           onChange={(e) =>
             setDetails({
@@ -103,6 +105,7 @@ const ContactSection = () => {
         <Textarea
           label="Message"
           name="message"
+          placeholder="Write me some message..."
           rows={5}
           value={message}
           onChange={(e) =>
