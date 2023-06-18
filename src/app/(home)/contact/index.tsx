@@ -44,10 +44,10 @@ const ContactSection = () => {
 
     emailjs
       .send(
-        process.env.EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         "template_yacrpaq",
         templateParams,
-        process.env.EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(
         function () {
