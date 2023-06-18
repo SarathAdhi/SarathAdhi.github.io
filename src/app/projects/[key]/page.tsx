@@ -1,11 +1,10 @@
-import { urlFor } from "@lib/client";
+import { client, urlFor } from "@lib/client";
 import React from "react";
 import MarkDown from "./(components)/MarkDown";
 import { ImageCarousel } from "./(components)/ImageCarousel";
 import Image from "next/image";
 import { Separator } from "@components/ui/separator";
 import { ToolTip } from "@components/ui/tooltip";
-import { fetchWrapper } from "@lib/fetch";
 
 type Props = {
   params: {
@@ -13,10 +12,14 @@ type Props = {
   };
 };
 
+export const revalidate = 60; // revalidate this page every 60 seconds
+
 const ViewProject: React.FC<Props> = async ({ params }) => {
-  const { project } = await fetchWrapper<{ project: Project }>(
-    `/projects/${params.key}`
-  );
+  const key = params.key;
+
+  const projectQuery = `*[_type == "projects" && (key == "${key}")][0]`;
+
+  const project = (await client.fetch(projectQuery)) as Project;
 
   if (!project) return <div>Project Not Found</div>;
 

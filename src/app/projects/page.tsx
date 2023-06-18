@@ -1,11 +1,13 @@
 import WavyText from "@components/WavyText";
-import { urlFor } from "@lib/client";
+import { client, urlFor } from "@lib/client";
 import React from "react";
 import ProjectsCard from "./(components)/ProjectsCard";
-import { fetchWrapper } from "@lib/fetch";
+
+export const revalidate = 60; // revalidate this page every 60 seconds
 
 const ViewProjects = async () => {
-  const { projects } = await fetchWrapper<{ projects: Project[] }>("/projects");
+  const projectsQuery = `*[_type == "projects"]`;
+  const projects = (await client.fetch(projectsQuery)) as Project[];
 
   return (
     <div>
