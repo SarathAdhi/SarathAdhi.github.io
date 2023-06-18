@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    loader: "akamai",
-    path: "",
+    // loader: "akamai",
+    // path: "",
     domains: ["avatars.githubusercontent.com", "seeklogo.com", "cdn.sanity.io"],
   },
   env: {
