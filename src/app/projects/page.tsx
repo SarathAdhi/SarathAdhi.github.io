@@ -3,8 +3,6 @@ import { client, urlFor } from "@lib/client";
 import React from "react";
 import ProjectsCard from "./(components)/ProjectsCard";
 
-export const revalidate = 60; // revalidate this page every 60 seconds
-
 const ViewProjects = async () => {
   const projectsQuery = `*[_type == "projects"]`;
   const projects = (await client.fetch(projectsQuery)) as Project[];

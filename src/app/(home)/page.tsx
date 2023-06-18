@@ -5,8 +5,6 @@ import HeroSection from "./hero";
 import SkillsSection from "./skills";
 import groupBy from "@utils/group-by";
 
-export const revalidate = 60; // revalidate this page every 60 seconds
-
 export default async function Home() {
   const skillsQuery = '*[_type == "skills"] | order(type, asc)';
   const projectQuery = `*[_type == "projects" && highlights == true]`;
