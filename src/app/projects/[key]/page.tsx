@@ -15,10 +15,7 @@ type Props = {
   };
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent?: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const key = params.key;
 
   const projectQuery = `*[_type == "projects" && (key == "${key}")][0]`;
