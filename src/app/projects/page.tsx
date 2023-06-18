@@ -17,7 +17,7 @@ const ViewProjects = async () => {
 
       <div className="container grid gap-2">
         {projects.map((e, index) => {
-          const images = e.images.map((img) => urlFor(img));
+          const images = e.images?.map((img) => urlFor(img));
 
           return (
             <ProjectsCard

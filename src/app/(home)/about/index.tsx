@@ -75,7 +75,18 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-2 rounded-md col-span-1">
-            <div className={cn(containerClassName)}></div>
+            <div
+              className={cn(containerClassName, "!p-0 h-[350px] sm:h-[440px]")}
+            >
+              <Image
+                className="w-full h-full object-contain"
+                width={1000}
+                height={1000}
+                src="/assets/me.png"
+                alt="My Profile Image"
+                priority={true}
+              />
+            </div>
 
             <div className="grid grid-rows-6 gap-2 rounded-md">
               <div
@@ -121,11 +132,11 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-y-2 lg:gap-2">
+        <div className="grid grid-cols-none lg:grid-cols-5 gap-y-2 lg:gap-2">
           <div
             className={cn(
               containerClassName,
-              "flex flex-col gap-4 sm:col-span-3"
+              "h-full flex flex-col gap-4 sm:col-span-3"
             )}
           >
             <div className="flex items-center justify-between">
@@ -136,7 +147,7 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
               </Link>
             </div>
 
-            <div className="h-full grid grid-cols-2 gap-2">
+            <div className="relative h-full flex-1 grid grid-cols-2 gap-4">
               {highlights.map(({ images, title, key }) => (
                 <Link
                   key={key}
@@ -144,7 +155,7 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
                   className="relative rounded-3xl overflow-hidden group"
                 >
                   <Image
-                    className="z-0 absolute top-0 left-0 w-full h-full object-cover"
+                    className="w-full h-full object-cover"
                     width={500}
                     height={500}
                     src={urlFor(images[0])}

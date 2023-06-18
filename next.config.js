@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // loader: "akamai",
-    // path: "",
-    domains: ["avatars.githubusercontent.com", "seeklogo.com", "cdn.sanity.io"],
+    // domains: ["avatars.githubusercontent.com", "seeklogo.com", "cdn.sanity.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
   env: {
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
