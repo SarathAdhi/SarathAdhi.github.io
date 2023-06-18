@@ -2,7 +2,7 @@
   "name": "portfolio_twenty_twentythree",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/SarathAdhi/SarathAdhi.github.io/tree/master/frontend",
+  "homepage": "https://github.com/SarathAdhi/SarathAdhi.github.io/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
