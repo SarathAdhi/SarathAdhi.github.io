@@ -1,11 +1,14 @@
 import { client } from "@lib/client";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export async function GET(request: Request) {
+export default async function handle(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const projectsQuery = `*[_type == "projects"]`;
   const projects = await client.fetch(projectsQuery);
 
-  return NextResponse.json({
+  return res.json({
     projects,
   });
 }

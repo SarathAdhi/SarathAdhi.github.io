@@ -1,8 +1,11 @@
 import { client } from "@lib/client";
 import groupBy from "@utils/group-by";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export async function GET(request: Request) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const skillsQuery = '*[_type == "skills"] | order(type, asc)';
   const projectQuery = `*[_type == "projects" && highlights == true]`;
   const resumeQuery = `*[_type == "resume"]{
@@ -23,7 +26,7 @@ export async function GET(request: Request) {
 
   const skills = groupBy<Skill>(_skills, "type");
 
-  return NextResponse.json({
+  return res.json({
     highlights,
     resume: resume[0].documentUrl,
     skills,
