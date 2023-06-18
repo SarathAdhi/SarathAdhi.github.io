@@ -1,0 +1,47 @@
+{
+  "name": "portfolio_twenty_twentythree",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://github.com/SarathAdhi/SarathAdhi.github.io/tree/master/frontend",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "next build && npx gh-pages -d ./"
+  },
+  "dependencies": {
+    "@motionone/utils": "^10.15.1",
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.6",
+    "@sanity/client": "^6.1.3",
+    "@sanity/image-url": "^1.0.2",
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.5",
+    "autoprefixer": "10.4.14",
+    "class-variance-authority": "^0.6.0",
+    "clsx": "^1.2.1",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.5",
+    "framer-motion": "^10.12.16",
+    "lucide-react": "^0.244.0",
+    "next": "13.4.5",
+    "next-mdx-remote": "^4.4.1",
+    "popmotion": "^11.0.5",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-multi-carousel": "^2.8.4",
+    "sanity-plugin-markdown": "^4.1.0",
+    "tailwind-merge": "^1.13.1",
+    "tailwindcss": "3.3.2",
+    "tailwindcss-animate": "^1.0.6",
+    "typescript": "5.1.3",
+    "zustand": "^4.3.8"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
