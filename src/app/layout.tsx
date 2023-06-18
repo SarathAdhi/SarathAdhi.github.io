@@ -2,6 +2,7 @@ import "./globals.css";
 import { cn } from "@lib/utils";
 import Navbar from "@components/Navbar";
 import { cookies } from "next/dist/client/components/headers";
+import Toast from "@components/Toast";
 
 export const metadata = {
   title: "Create Next App",
@@ -17,10 +18,12 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={cn(theme?.value || "dark")}>
-      <body className={cn("p-0 flex flex-col min-h-screen md:pb-20")}>
+      <body className={cn("p-0 flex flex-col min-h-screen")}>
         <Navbar theme={theme?.value} />
 
         {children}
+
+        <Toast />
       </body>
     </html>
   );

@@ -28,8 +28,8 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
   const images = _images.map((e) => urlFor(e));
 
   return (
-    <div className="container space-y-4">
-      <h1>{title}</h1>
+    <div className="container space-y-4 md:pb-20">
+      <h1 className="text-center">{title}</h1>
 
       <ImageCarousel {...{ images }} />
 

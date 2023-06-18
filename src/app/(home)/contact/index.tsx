@@ -1,7 +1,64 @@
+"use client";
+
 import WavyText from "@components/WavyText";
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Button } from "@components/ui/button";
+import { toast } from "react-hot-toast";
+import { Input } from "@components/ui/input";
+import { Textarea } from "@components/ui/textarea";
+import { motion } from "framer-motion";
+import { AnimatedContainer } from "@components/AnimatedContainer";
+import { Send } from "lucide-react";
+
+const container = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: (i: number = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: i * 0 },
+  }),
+};
 
 const ContactSection = () => {
+  const [details, setDetails] = useState({
+    from_name: "",
+    from_email: "",
+    message: "Hey Sarath, Nice portfolio.",
+  });
+
+  const { from_name, from_email, message } = details;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!from_name || !from_email || !message)
+      return toast.error("Please fill all the required fields.");
+
+    const templateParams = {
+      from_name,
+      from_email,
+      message,
+    };
+
+    emailjs
+      .send(
+        "service_opbc9at",
+        "template_yacrpaq",
+        templateParams,
+        "UUgSZVl6GSqMszEY_"
+      )
+      .then(
+        function () {
+          toast.success("Hey, thanks for your response.");
+        },
+        function (error) {
+          toast.error("Something went wrong...", error);
+        }
+      );
+  };
+
   return (
     <div id="contact" className="sm:space-y-4 min-h-screen">
       <div className="parallax-text">
@@ -10,7 +67,64 @@ const ContactSection = () => {
         <WavyText as="h2" text="Contact" />
       </div>
 
-      <div className="pd container"></div>
+      <motion.form
+        className="pd container w-[600px] max-w-full flex flex-col items-center justify-center gap-4"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <Input
+          label="Name"
+          name="name"
+          value={from_name}
+          onChange={(e) =>
+            setDetails({
+              ...details,
+              from_name: e.target.value,
+            })
+          }
+          required
+        />
+
+        <Input
+          label="Email"
+          name="email"
+          value={from_email}
+          onChange={(e) =>
+            setDetails({
+              ...details,
+              from_email: e.target.value,
+            })
+          }
+          required
+        />
+
+        <Textarea
+          label="Message"
+          name="message"
+          rows={5}
+          value={message}
+          onChange={(e) =>
+            setDetails({
+              ...details,
+              message: e.target.value,
+            })
+          }
+          required
+        />
+
+        <AnimatedContainer>
+          <Button
+            className="flex items-center gap-2"
+            type="submit"
+            onClick={handleSubmit}
+          >
+            Submit
+            <Send size={15} />
+          </Button>
+        </AnimatedContainer>
+      </motion.form>
     </div>
   );
 };
