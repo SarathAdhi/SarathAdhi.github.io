@@ -44,10 +44,10 @@ const ContactSection = () => {
 
     emailjs
       .send(
-        "service_opbc9at",
+        process.env.EMAILJS_SERVICE_ID!,
         "template_yacrpaq",
         templateParams,
-        "UUgSZVl6GSqMszEY_"
+        process.env.EMAILJS_PUBLIC_KEY!
       )
       .then(
         function () {
@@ -68,7 +68,7 @@ const ContactSection = () => {
       </div>
 
       <motion.form
-        className="pd container w-[600px] max-w-full flex flex-col items-center justify-center gap-4"
+        className="mt-14 pd container w-[600px] max-w-full flex flex-col items-center justify-center gap-4"
         variants={container}
         initial="hidden"
         whileInView="visible"
