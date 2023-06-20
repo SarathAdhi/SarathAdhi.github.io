@@ -52,7 +52,7 @@ const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
                     borderRight: "7px solid hsl(var(--foreground))",
                   }}
                   date={`${start} - ${end}`}
-                  dateClassName="lg:mx-4 text-foreground lg:text-background"
+                  dateClassName="lg:mx-4 text-foreground"
                   icon={
                     <Link
                       target="_blank"
