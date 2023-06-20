@@ -3,7 +3,7 @@ import { cn } from "@lib/utils";
 import Navbar from "@components/Navbar";
 import { cookies } from "next/dist/client/components/headers";
 import Toast from "@components/Toast";
-import { Metadata } from "next";
+import type { Metadata } from "next/index";
 
 export const metadata: Metadata = {
   title: "Sarath Adhithya",

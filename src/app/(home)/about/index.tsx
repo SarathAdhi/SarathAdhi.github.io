@@ -1,4 +1,3 @@
-import WavyText from "@components/WavyText";
 import { Button } from "@components/ui/button";
 import { ToolTip } from "@components/ui/tooltip";
 import { urlFor } from "@lib/client";
@@ -8,6 +7,8 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import dynamic from "next/dynamic";
+const WavyText = dynamic(import("@components/WavyText"));
 
 const containerClassName =
   "bg-white dark:bg-gray-900 rounded-2xl pd border-2 border-border";

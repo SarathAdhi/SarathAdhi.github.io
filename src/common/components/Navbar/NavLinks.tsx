@@ -28,6 +28,7 @@ export const NavLinks = () => {
             "text-lg py-2 px-4 transition-all hover:!opacity-100 hover:!text-black group-hover:bg-transparent group-hover:text-white group-hover:opacity-60 duration-300 hover:!bg-[#fbe8de] rounded-full",
             pathname.includes(href) && "bg-[#fbe8de] text-black"
           )}
+          prefetch={false}
         >
           {name}
         </Link>

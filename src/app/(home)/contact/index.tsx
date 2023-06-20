@@ -60,7 +60,7 @@ const ContactSection = () => {
   };
 
   return (
-    <div id="contact" className="sm:space-y-4 min-h-screen">
+    <div id="contact" className="sm:space-y-4 min-h-screen flex flex-col">
       <div className="parallax-text">
         <h1>Contact</h1>
 
@@ -68,7 +68,7 @@ const ContactSection = () => {
       </div>
 
       <motion.form
-        className="mt-14 pd container w-[600px] max-w-full flex flex-col items-center justify-center gap-4"
+        className="flex-1 mt-14 pd container w-[600px] max-w-full flex flex-col items-center justify-center gap-4"
         variants={container}
         initial="hidden"
         whileInView="visible"

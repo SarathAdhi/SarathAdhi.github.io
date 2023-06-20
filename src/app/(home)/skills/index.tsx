@@ -24,7 +24,7 @@ const SkillsSection: React.FC<Props> = ({ skills }) => {
         <WavyText as="h2" text="Skills" />
       </div>
 
-      <div className="container">
+      <div className="md:!mt-20 container">
         <div className="grid gap-8">
           {skillsType.map((type, i) => (
             <fieldset
