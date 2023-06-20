@@ -1,6 +1,6 @@
 import WavyText from "@components/WavyText";
-import Image from "next/image";
 import React from "react";
+import TechStackRenderer from "./(components)/TechStackRenderer";
 
 type Props = {
   skills: {
@@ -31,28 +31,11 @@ const SkillsSection: React.FC<Props> = ({ skills }) => {
               key={type}
               className="border-2 rounded-md pd flex flex-col items-center"
             >
-              <legend className="px-2 text-center text-2xl font-semibold">
-                {type.split(".")[1]}
+              <legend className="px-2 text-center font-semibold">
+                <WavyText as="h5" text={type.split(".")[1]} />
               </legend>
 
-              <div className="flex items-center justify-center flex-wrap gap-8">
-                {skillsValue[i].map(({ name, image }) => (
-                  <div
-                    key={name}
-                    className="flex flex-col items-center justify-center gap-2"
-                  >
-                    <Image
-                      className="w-14 h-14 bg-gray-100 border boder-border shadow-md rounded-lg p-2 duration-200 hover:scale-110"
-                      width={100}
-                      height={100}
-                      src={image}
-                      alt={name}
-                    />
-
-                    <span className="font-semibold text-center">{name}</span>
-                  </div>
-                ))}
-              </div>
+              <TechStackRenderer techStack={skillsValue[i]} />
             </fieldset>
           ))}
         </div>

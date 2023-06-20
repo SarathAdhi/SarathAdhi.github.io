@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
+import WorkExperienceSheet from "./(components)/WorkExperienceSheet";
 const WavyText = dynamic(import("@components/WavyText"));
 
 const containerClassName =
@@ -154,6 +155,7 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
                   key={key}
                   href={`/projects/${key}`}
                   className="relative rounded-3xl overflow-hidden group"
+                  prefetch={false}
                 >
                   <Image
                     className="w-full h-full object-cover"
@@ -181,7 +183,7 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
           >
             <h4 className="uppercase leading-tight">🤏 Note about me</h4>
 
-            <p className="leading-tight">
+            <p className="leading-tight text-justify">
               I am a self-taught developer, currently pursuing my undergraduate
               studies in CSE with specialization in AI and Robotics at Vellore
               Institute of Technology - Chennai. I am dedicated to staying ahead
@@ -192,11 +194,15 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
               and Data Science.
             </p>
 
-            <Button className="rounded-full" asChild>
-              <Link href={resume} target="_blank">
-                Resume
-              </Link>
-            </Button>
+            <div className="flex gap-4">
+              <Button className="rounded-full" asChild>
+                <Link href={resume} target="_blank">
+                  Resume
+                </Link>
+              </Button>
+
+              <WorkExperienceSheet />
+            </div>
           </div>
         </div>
       </div>

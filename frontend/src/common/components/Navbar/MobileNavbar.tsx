@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRef } from "react";
 import {
   AnimatePresence,
@@ -12,8 +12,8 @@ import { pages } from "./pages";
 import Link from "next/link";
 import { useDimensions } from "@hooks/use-dimensions";
 import { cn } from "@lib/utils";
-import { usePathname, useSearchParams } from "next/navigation";
 import ThemeButton from "@components/ThemeButton";
+import { usePathname } from "@hooks/usePathname";
 
 const variants_ul = {
   open: {
@@ -55,16 +55,7 @@ export const MobileNavbar = ({ _theme = "dark" }) => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
-  const __pathname = usePathname();
-  const __searchParams = useSearchParams();
-
-  const [pathname, setPathname] = useState("");
-
-  useEffect(() => {
-    const _pathname = window.location.href;
-
-    setPathname(_pathname);
-  }, [__pathname, __searchParams]);
+  const { pathname } = usePathname();
 
   return (
     <motion.nav
@@ -108,26 +99,28 @@ export const MobileNavbar = ({ _theme = "dark" }) => {
             exit="closed"
             className="group flex flex-col items-end gap-5 font-bold"
           >
-            {pages.map(({ name, href }) => (
-              <motion.li
-                key={name}
-                variants={variants_li}
-                whileHover={{ scale: 1.1, x: -10 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
+            {pages.map(({ items }) =>
+              items.map(({ name, href }) => (
+                <motion.li
                   key={name}
-                  href={href}
-                  onClick={() => toggleOpen()}
-                  className={cn(
-                    "text-lg py-2 px-4 transition-all bg-black dark:bg-white text-white dark:text-black border-2 border-black hover:!text-white group-hover:bg-transparent group-hover:text-gray-700 group-hover:dark:text-gray-500 duration-300 hover:!bg-purple-600 rounded-full",
-                    pathname.includes(href) && "!bg-purple-600 !text-white"
-                  )}
+                  variants={variants_li}
+                  whileHover={{ scale: 1.1, x: -10 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  {name}
-                </Link>
-              </motion.li>
-            ))}
+                  <Link
+                    key={name}
+                    href={href}
+                    onClick={() => toggleOpen()}
+                    className={cn(
+                      "text-lg py-2 px-4 transition-all bg-black dark:bg-white text-white dark:text-black border-2 border-black hover:!text-white group-hover:bg-transparent group-hover:text-gray-700 group-hover:dark:text-gray-500 duration-300 hover:!bg-purple-600 rounded-full",
+                      pathname === href && "!bg-purple-600 !text-white"
+                    )}
+                  >
+                    {name}
+                  </Link>
+                </motion.li>
+              ))
+            )}
 
             <motion.div
               variants={variants_li}

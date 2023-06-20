@@ -7,7 +7,7 @@ interface Props extends HTMLMotionProps<"div"> {
   delay?: number;
   duration?: number;
   once?: boolean;
-  as?: "h1" | "h2" | "h3" | "h6" | "p";
+  as?: "h1" | "h2" | "h3" | "h5" | "h6" | "p";
   spanClassName?: string;
 }
 
