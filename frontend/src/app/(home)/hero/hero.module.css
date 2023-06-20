@@ -1,0 +1,84 @@
+.bg_grid {
+  z-index: 0;
+  max-width: 100rem;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  overflow: hidden;
+}
+
+.bg_grid_overlay {
+  z-index: 1;
+  width: 105%;
+  height: 105%;
+  background-image: radial-gradient(
+    circle,
+    transparent,
+    var(--bg-grid-overlay) 60%
+  );
+  position: absolute;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  transform: scale(1.01);
+}
+
+.bg_grid_wrapper {
+  width: 100%;
+  opacity: 0.3;
+  perspective: 125rem;
+  perspective-origin: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  transform: scale(1.15);
+}
+
+.bg_grid_box_wrapper {
+  width: 60em;
+  height: 60em;
+  transform-style: preserve-3d;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  transform: rotateX(45deg);
+  animation-name: rotate;
+  animation-duration: 80s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @apply overflow-hidden lg:overflow-visible;
+}
+
+.bg_grid_box {
+  z-index: 0;
+  width: 4em;
+  height: 4em;
+  border: 1px solid var(--bg-grid-box-border);
+  transition: all 0.15s ease-in-out;
+  position: relative;
+}
+
+@keyframes rotate {
+  0% {
+    transform: /* perspective(0px) */ rotateX(45deg) rotateY(0deg) rotateZ(0deg)
+      perspective(1000px);
+  }
+  100% {
+    transform: /* perspective(0px) */ rotateX(45deg) rotateY(0deg)
+      rotateZ(360deg) perspective(1000px);
+  }
+}

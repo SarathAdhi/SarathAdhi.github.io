@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --bg-grid-overlay: #ffff;
+    --bg-grid-box-border: #131313;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+
+    --bg-grid-overlay: #030711;
+    --bg-grid-box-border: #ffffffb3;
+  }
+}
+
+@font-face {
+  font-family: "Hubot Sans";
+  src: url("/fonts/Hubot-Sans.woff2") format("woff2 supports variations"),
+    url("/fonts/Hubot-Sans.woff2") format("woff2-variations");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+}
+
+html {
+  font-family: "Hubot Sans" !important;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background text-foreground !scroll-smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1 {
+    @apply text-3xl sm:text-5xl md:text-6xl font-bold;
+  }
+  h2 {
+    @apply text-xl sm:text-4xl md:text-5xl font-semibold;
+  }
+  h3 {
+    @apply text-xl sm:text-3xl md:text-4xl font-semibold;
+  }
+  h4 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  h5 {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+  h6 {
+    @apply text-lg md:text-xl font-semibold;
+  }
+  p {
+    @apply text-base md:text-lg;
+  }
+  .container {
+    @apply !p-2 md:!p-4;
+  }
+}
+
+.pd {
+  @apply p-2 md:p-4;
+}
+
+.text-fade {
+  /* background: linear-gradient(to right, #ffff, #303030); */
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @apply bg-gradient-to-r from-[#0106ff] dark:from-[#ffff] to-[#ff03ff] dark:to-[#242424];
+}
+
+.parallax-text {
+  @apply h-20 sm:h-28 !relative text-center pd flex flex-col items-center justify-center bg-noise;
+}
+
+.parallax-text h1 {
+  text-shadow: -1px -1px 0 hsl(var(--border)), 1px -1px 0 hsl(var(--border)),
+    -1px 1px 0 hsl(var(--border)), 1px 1px 0 hsl(var(--border));
+
+  @apply text-[40px] sm:text-8xl text-background tracking-widest sm:mt-2 -z-10 font-black absolute uppercase;
+}
+
+.parallax-text h2 {
+  @apply font-bold z-10 uppercase tracking-widest;
+}
