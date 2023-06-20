@@ -9,7 +9,7 @@ import Link from "next/link";
 import React from "react";
 import dynamic from "next/dynamic";
 import WorkExperienceSheet from "./(components)/WorkExperienceSheet";
-const WavyText = dynamic(import("@components/WavyText"));
+import WavyText from "@components/WavyText";
 
 const containerClassName =
   "bg-white dark:bg-gray-900 rounded-2xl pd border-2 border-border";
