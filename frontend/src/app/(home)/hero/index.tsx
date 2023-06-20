@@ -1,6 +1,7 @@
 import WavyText from "@components/WavyText";
 import React from "react";
 import styles from "./hero.module.css";
+import ParallaxMouseMove from "./(components)/ParallaxMouseMove";
 
 const BackgroundTile = () => (
   <div className={styles.bg_grid}>
@@ -24,6 +25,8 @@ const HeroSection = () => {
         id="hero"
         className="container z-40 leading-none pd h-screen flex flex-col gap-4 items-center justify-center"
       >
+        <ParallaxMouseMove />
+
         <div className="flex items-center justify-center flex-col lg:flex-row gap-4 lg:gap-0">
           <WavyText as="h1" text="Hii👋, I'm " once />
 
@@ -46,14 +49,10 @@ const HeroSection = () => {
           spanClassName="uppercase text-fade"
         />
 
-        {/* <WavyText
-          duration={0.02}
-          delay={2}
-          as="h6"
-          text="I convert your thoughts into code-written application"
-          spanClassName="uppercase text-fade"
-          once
-        /> */}
+        <h5 className="text-center capitalize">
+          Bringing <span className="text-imp">ideas</span> to life, one{" "}
+          <span className="text-imp">pixel</span> at a time.
+        </h5>
       </div>
     </>
   );

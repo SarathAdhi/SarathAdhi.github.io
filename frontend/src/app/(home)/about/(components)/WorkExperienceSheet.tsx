@@ -18,15 +18,12 @@ import "react-vertical-timeline-component/style.min.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollArea } from "@components/ui/scroll-area";
-import { useRouter } from "next/navigation";
 
 type Props = {
   workExp: WorkExperience[];
 };
 
 const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
-  const { push } = useRouter();
-
   return (
     <Sheet>
       <SheetTrigger asChild>

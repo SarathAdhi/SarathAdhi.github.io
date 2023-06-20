@@ -7,7 +7,6 @@ import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import dynamic from "next/dynamic";
 import WorkExperienceSheet from "./(components)/WorkExperienceSheet";
 import WavyText from "@components/WavyText";
 
@@ -170,10 +169,12 @@ const AboutSection: React.FC<Props> = ({
                     alt={title}
                   />
 
-                  <div className="flex flex-col items-center justify-center gap-2 duration-200 pd w-32 h-14 group-hover:w-full group-hover:h-full rounded-3xl rounded-tl-none rounded-br-none absolute top-0 right-0 bg-background/50">
-                    <h6>{title}</h6>
+                  <span className="z-40 font-semibold absolute top-4 right-4 bg-black px-4 py-2 rounded-3xl border-2">
+                    {title}
+                  </span>
 
-                    <h6 className="text-sm items-center gap-1 hidden group-hover:flex">
+                  <div className="top-0 left-0 w-full h-full grid place-content-center duration-200 pd scale-0 group-hover:scale-100 rounded-3xl absolute bg-background/80">
+                    <h6 className="text-sm flex items-center gap-2">
                       Read More
                       <ExternalLink />
                     </h6>

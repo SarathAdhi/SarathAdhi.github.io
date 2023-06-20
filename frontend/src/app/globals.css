@@ -139,6 +139,13 @@ html {
   @apply bg-gradient-to-r from-[#0106ff] dark:from-[#ffff] to-[#ff03ff] dark:to-[#242424];
 }
 
+.text-imp {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @apply bg-gradient-to-r from-[#0106ff] dark:from-[#3f43fc] to-[#ff03ff] dark:to-[#ff49ff] bg-clip-text;
+}
+
 .parallax-text {
   @apply h-20 sm:h-28 !relative text-center pd flex flex-col items-center justify-center bg-noise;
 }
@@ -152,4 +159,16 @@ html {
 
 .parallax-text h2 {
   @apply font-bold z-10 uppercase tracking-widest;
+}
+
+.parallax-wrap {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-wrap img {
+  @apply absolute hidden lg:block w-16 h-16;
 }
