@@ -1,11 +1,11 @@
 import { client, urlFor } from "@lib/client";
 import React from "react";
-import MarkDown from "./(components)/MarkDown";
+import MarkDown from "@components/MarkDown";
 import { ImageCarousel } from "./(components)/ImageCarousel";
 import Image from "next/image";
 import { Separator } from "@components/ui/separator";
 import { ToolTip } from "@components/ui/tooltip";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLinkIcon, GithubIcon } from "lucide-react";
 

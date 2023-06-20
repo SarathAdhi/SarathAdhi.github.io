@@ -13,17 +13,23 @@ export default async function Home() {
   const resumeQuery = `*[_type == "resume"]{
     "documentUrl": document.asset->url
   }`;
+  const workExpQuery = `*[_type == "work-experience"][]{
+    ...,
+    "image": image.asset->url
+  }`;
 
   const {
     skills: _skills,
     highlights,
     resume,
+    workExp,
   } = await client.fetch(`
-  {
-    "skills": ${skillsQuery},
-    "highlights": ${projectQuery},
-    "resume": ${resumeQuery}
-  }
+    {
+      "skills": ${skillsQuery},
+      "highlights": ${projectQuery},
+      "resume": ${resumeQuery},
+      "workExp": ${workExpQuery}
+    }
   `);
 
   const skills = groupBy<Skill>(_skills, "type");
@@ -31,7 +37,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col flex-1 h-full gap-4">
       <HeroSection />
-      <AboutSection {...{ highlights, resume }} />
+      <AboutSection {...{ highlights, resume, workExp }} />
       <SkillsSection {...{ skills }} />
       <ContactSection />
     </div>

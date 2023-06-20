@@ -17,7 +17,7 @@ const ViewProjects = async () => {
   const projects = (await client.fetch(projectsQuery)) as Project[];
 
   return (
-    <div className="md:pb-20">
+    <div className="md:pb-60">
       <div className="parallax-text">
         <h1>Projects</h1>
 

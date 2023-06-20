@@ -37,6 +37,8 @@
 
     --bg-grid-overlay: #ffff;
     --bg-grid-box-border: #131313;
+
+    --line-color: #111 !important;
   }
 
   .dark {
@@ -73,6 +75,8 @@
 
     --bg-grid-overlay: #030711;
     --bg-grid-box-border: #ffffffb3;
+
+    --line-color: #fff !important;
   }
 }
 

@@ -83,7 +83,7 @@ const ProjectsCard: React.FC<Props> = ({
               animate={showImages ? "show" : "hidden"}
               variants={variants}
               transition={{ duration: 0.5 }}
-              className="z-40 absolute -top-2"
+              className="z-[9999] absolute -top-2"
             >
               <ImageSlideShow images={images} />
             </motion.div>

@@ -17,9 +17,14 @@ const containerClassName =
 type Props = {
   highlights: Project[];
   resume: string;
+  workExp: WorkExperience[];
 };
 
-const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
+const AboutSection: React.FC<Props> = ({
+  highlights = [],
+  resume = "",
+  workExp = [],
+}) => {
   return (
     <div id="about" className="z-40 flex flex-col gap-2 sm:gap-8 min-h-screen">
       <div className="parallax-text">
@@ -179,7 +184,10 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
           </div>
 
           <div
-            className={cn(containerClassName, "!p-4 sm:col-span-2 grid gap-4")}
+            className={cn(
+              containerClassName,
+              "!p-4 sm:col-span-2 flex flex-col justify-between gap-4"
+            )}
           >
             <h4 className="uppercase leading-tight">🤏 Note about me</h4>
 
@@ -195,13 +203,13 @@ const AboutSection: React.FC<Props> = ({ highlights = [], resume = "" }) => {
             </p>
 
             <div className="flex gap-4">
+              <WorkExperienceSheet {...{ workExp }} />
+
               <Button className="rounded-full" asChild>
                 <Link href={resume} target="_blank">
                   Resume
                 </Link>
               </Button>
-
-              <WorkExperienceSheet />
             </div>
           </div>
         </div>

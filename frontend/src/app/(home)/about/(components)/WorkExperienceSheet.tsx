@@ -4,7 +4,6 @@ import React from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -16,8 +15,18 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Image from "next/image";
+import Link from "next/link";
+import { ScrollArea } from "@components/ui/scroll-area";
+import { useRouter } from "next/navigation";
 
-const WorkExperienceSheet = () => {
+type Props = {
+  workExp: WorkExperience[];
+};
+
+const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
+  const { push } = useRouter();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -26,60 +35,59 @@ const WorkExperienceSheet = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent className="overflow-auto pd">
+      <SheetContent className="flex flex-col pd">
         <SheetHeader>
           <SheetTitle>Work Experience</SheetTitle>
-
-          {/* 
-          <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </SheetDescription> */}
         </SheetHeader>
 
-        <div className="overflow-auto">
+        <ScrollArea className="flex-1 pr-2">
           <VerticalTimeline>
-            <VerticalTimelineElement
-              className="!text-background"
-              contentStyle={{
-                background: "hsl(var(--foreground))",
-              }}
-              contentArrowStyle={{
-                borderRight: "7px solid hsl(var(--foreground))",
-              }}
-              date="2011 - present"
-              dateClassName="mx-4 text-foreground"
-              // icon={<WorkIcon />}
-            >
-              <h4 className="">Creative Director</h4>
-              <h6 className="">Miami, FL</h6>
-              <p>
-                Creative Direction, User Experience, Visual Design, Project
-                Management, Team Leading
-              </p>
-            </VerticalTimelineElement>
+            {workExp.map(
+              ({ name, image, role, website, start, end, description }) => (
+                <VerticalTimelineElement
+                  key={name}
+                  className="!text-foreground"
+                  contentStyle={{
+                    background: "hsl(var(--border))",
+                    border: "1px solid",
+                  }}
+                  contentArrowStyle={{
+                    borderRight: "7px solid hsl(var(--foreground))",
+                  }}
+                  date={`${start} - ${end}`}
+                  dateClassName="lg:mx-4 text-foreground lg:text-background"
+                  icon={
+                    <Link
+                      target="_blank"
+                      className="hover:underline"
+                      href={website}
+                    >
+                      <Image
+                        className="w-full h-full rounded-full"
+                        width={100}
+                        height={100}
+                        src={image}
+                        alt={name}
+                      />
+                    </Link>
+                  }
+                >
+                  <Link
+                    target="_blank"
+                    className="hover:underline"
+                    href={website}
+                  >
+                    <h4>{name}</h4>
+                  </Link>
 
-            <VerticalTimelineElement
-              className="!text-background"
-              contentStyle={{
-                background: "hsl(var(--foreground))",
-              }}
-              contentArrowStyle={{
-                borderRight: "7px solid hsl(var(--foreground))",
-              }}
-              date="2011 - present"
-              dateClassName="mx-4 text-foreground"
-              // icon={<WorkIcon />}
-            >
-              <h6 className="">Creative Director</h6>
-              <h6 className="">Miami, FL</h6>
-              <p>
-                Creative Direction, User Experience, Visual Design, Project
-                Management, Team Leading
-              </p>
-            </VerticalTimelineElement>
+                  <h6>{role}</h6>
+
+                  <p className="!text-sm whitespace-pre-wrap">{description}</p>
+                </VerticalTimelineElement>
+              )
+            )}
           </VerticalTimeline>
-        </div>
+        </ScrollArea>
       </SheetContent>
     </Sheet>
   );
