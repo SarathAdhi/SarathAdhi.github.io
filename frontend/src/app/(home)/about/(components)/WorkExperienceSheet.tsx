@@ -43,7 +43,6 @@ const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
               ({ name, image, role, website, start, end, description }) => (
                 <VerticalTimelineElement
                   key={name}
-                  className="!text-foreground"
                   contentStyle={{
                     background: "hsl(var(--border))",
                     border: "1px solid",
@@ -51,8 +50,6 @@ const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
                   contentArrowStyle={{
                     borderRight: "7px solid hsl(var(--foreground))",
                   }}
-                  date={`${start} - ${end}`}
-                  dateClassName="lg:mx-4 text-foreground"
                   icon={
                     <Link
                       target="_blank"
@@ -68,6 +65,9 @@ const WorkExperienceSheet: React.FC<Props> = ({ workExp = [] }) => {
                       />
                     </Link>
                   }
+                  className="!text-foreground"
+                  date={`${start} - ${end || "Present"}`}
+                  dateClassName="lg:mx-4 text-foreground"
                 >
                   <Link
                     target="_blank"

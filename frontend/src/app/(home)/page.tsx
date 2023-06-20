@@ -8,12 +8,12 @@ import groupBy from "@utils/group-by";
 export const revalidate = 60; // revalidate this page every 60 seconds
 
 export default async function Home() {
-  const skillsQuery = '*[_type == "skills"] | order(type, asc)';
+  const skillsQuery = '*[_type == "skills"] | order(type asc)';
   const projectQuery = `*[_type == "projects" && highlights == true]`;
   const resumeQuery = `*[_type == "resume"]{
     "documentUrl": document.asset->url
   }`;
-  const workExpQuery = `*[_type == "work-experience"][]{
+  const workExpQuery = `*[_type == "work-experience"] | order(number desc)[]{
     ...,
     "image": image.asset->url
   }`;
