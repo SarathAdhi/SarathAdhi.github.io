@@ -1,6 +1,5 @@
 "use client";
 
-import { useStore } from "@utils/store";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
 interface Props extends HTMLMotionProps<"div"> {
@@ -21,45 +20,38 @@ const WavyText: React.FC<Props> = ({
   spanClassName = "",
   ...props
 }: Props) => {
-  const { isAnimationOn } = useStore();
   const letters = Array.from(text);
 
-  const container: Variants = isAnimationOn
-    ? {
-        hidden: {
-          opacity: 0,
-        },
-        visible: (i: number = 1) => ({
-          opacity: 1,
-          transition: { staggerChildren: duration, delayChildren: i * delay },
-        }),
-      }
-    : {};
+  const container: Variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: (i: number = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: duration, delayChildren: i * delay },
+    }),
+  };
+  const child: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
 
-  const child: Variants = isAnimationOn
-    ? {
-        hidden: {
-          opacity: 0,
-          y: 20,
-          transition: {
-            type: "spring",
-            damping: 12,
-            stiffness: 200,
-          },
-        },
-
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            type: "spring",
-            damping: 12,
-            stiffness: 200,
-          },
-        },
-      }
-    : {};
-
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
   const Comp = motion[as];
 
   return (
