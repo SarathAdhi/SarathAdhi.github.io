@@ -24,12 +24,12 @@ export const NavLinks = () => {
 
   return (
     <>
-      {pages.map(({ isSeparateChild, items }) => {
+      {pages.map(({ isSeparateChild, items }, index) => {
         const ComponentWrapper = isSeparateChild
           ? Wrapper.Separate
           : Wrapper.Group;
         return (
-          <ComponentWrapper>
+          <ComponentWrapper key={index}>
             {items.map(({ name, href }) => (
               <Link
                 key={name}
