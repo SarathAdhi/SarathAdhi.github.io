@@ -45,7 +45,7 @@ const HighlightProjects: React.FC<Props> = ({
               alt={title}
             />
 
-            <span className="z-40 font-semibold absolute top-4 right-4 bg-black px-4 py-2 rounded-3xl border-2">
+            <span className="z-40 font-semibold absolute top-4 right-4 bg-background px-4 py-2 rounded-3xl border-2">
               {title}
             </span>
 
