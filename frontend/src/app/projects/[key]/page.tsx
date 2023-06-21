@@ -8,6 +8,7 @@ import { ToolTip } from "@components/ui/tooltip";
 import { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLinkIcon, GithubIcon } from "lucide-react";
+import { Button } from "@components/ui/button";
 
 type Props = {
   params: {
@@ -21,6 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const projectQuery = `*[_type == "projects" && (key == "${key}")][0]`;
 
   const project = (await client.fetch(projectQuery)) as Project;
+
+  if (!project)
+    return {
+      title: `Page Not Found | Sarath Adhithya`,
+    };
 
   const { title, images: _images, description } = project;
 
@@ -44,7 +50,16 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
 
   const project = (await client.fetch(projectQuery)) as Project;
 
-  if (!project) return <div>Project Not Found</div>;
+  if (!project) {
+    return (
+      <div className="h-screen grid place-content-center place-items-center gap-4">
+        <h3 className="text-center">Oops.. Project Not Found</h3>
+        <Button variant="secondary" asChild>
+          <Link href="/projects">Go to Projects</Link>
+        </Button>
+      </div>
+    );
+  }
 
   const {
     title,
@@ -81,7 +96,7 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
 
       <Separator />
 
-      <div className="flex items-center sm:items-start flex-col-reverse sm:flex-row gap-4">
+      <div className="flex items-center sm:items-start flex-col-reverse sm:flex-row gap-4 sm:gap-8">
         <div className="space-y-2">
           <MarkDown source={description} />
         </div>
@@ -92,6 +107,8 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
               <ExternalLinkIcon size={30} />
             </Link>
           </ToolTip>
+
+          <Separator />
 
           <ToolTip tooltip="GitHub" side="left">
             <Link href={github} target="_blank">
