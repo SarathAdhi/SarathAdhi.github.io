@@ -4,6 +4,7 @@ import Navbar from "@components/Navbar";
 import { cookies } from "next/dist/client/components/headers";
 import Toast from "@components/Toast";
 import type { Metadata } from "next/index";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: "Sarath Adhithya",
@@ -38,6 +39,7 @@ export default function RootLayout({
         {children}
 
         <Toast />
+        <Analytics />
       </body>
     </html>
   );
