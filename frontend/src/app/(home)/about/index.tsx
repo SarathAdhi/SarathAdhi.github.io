@@ -41,9 +41,11 @@ const AboutSection: React.FC<Props> = ({
                 "flex flex-col items-end justify-evenly gap-4 col-span-3 pd"
               )}
             >
-              <h2>I convert your thoughts into code-written application</h2>
+              <h2 className="uppercase font-extrabold">
+                I convert your thoughts into code-written application
+              </h2>
 
-              <Button className="rounded-full" asChild>
+              <Button className="rounded-full text-lg" asChild>
                 <Link href={"mailto:s.sarathadhithya@gmail.com"}>
                   👋 Hire Me
                 </Link>
@@ -75,7 +77,7 @@ const AboutSection: React.FC<Props> = ({
                   "col-span-1 flex flex-col items-center justify-center text-center gap-2"
                 )}
               >
-                <span className="text-3xl font-bold">3+</span> Year Experience
+                <span className="text-3xl font-bold">3+</span> Worked Companies
               </div>
             </div>
           </div>

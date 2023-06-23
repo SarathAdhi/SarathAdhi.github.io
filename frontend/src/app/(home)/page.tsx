@@ -10,7 +10,7 @@ export const revalidate = 60; // revalidate this page every 60 seconds
 export default async function Home() {
   const skillsQuery = '*[_type == "skills"] | order(type asc)';
   const projectQuery = `*[_type == "projects" && highlights == true]`;
-  const resumeQuery = `*[_type == "resume"]{
+  const resumeQuery = `*[_type == "resume"][0]{
     "documentUrl": document.asset->url
   }`;
   const workExpQuery = `*[_type == "work-experience"] | order(number desc)[]{
@@ -37,7 +37,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col flex-1 h-full gap-4">
       <HeroSection />
-      <AboutSection {...{ highlights, resume, workExp }} />
+      <AboutSection {...{ highlights, resume: resume.documentUrl, workExp }} />
       <SkillsSection {...{ skills }} />
       <ContactSection />
     </div>
