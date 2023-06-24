@@ -50,9 +50,9 @@ const MyDetails = ({ containerClassName = "" }) => {
         >
           {socials.map(({ name, href, Icon }) => (
             <ToolTip key={name} tooltip={name} side="bottom">
-              <Link href={href} target="_blank">
+              <a href={href} target="_blank">
                 <Icon />
-              </Link>
+              </a>
             </ToolTip>
           ))}
         </div>

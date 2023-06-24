@@ -45,10 +45,8 @@ const AboutSection: React.FC<Props> = ({
                 I convert your thoughts into code-written application
               </h2>
 
-              <Button className="rounded-full text-lg" asChild>
-                <Link href={"mailto:s.sarathadhithya@gmail.com"}>
-                  👋 Hire Me
-                </Link>
+              <Button id="mail" className="rounded-full text-lg">
+                <a href="mailto:s.sarathadhithya@gmail.com">👋 Hire Me</a>
               </Button>
             </div>
 
