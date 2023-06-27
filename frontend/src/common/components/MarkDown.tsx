@@ -9,8 +9,17 @@ const MarkDown: React.FC<Props> = ({ ...props }) => {
     <MDXRemote
       {...props}
       components={{
-        p: (props) => <p {...props} className="text-justify" />,
-        li: (props) => <li {...props} className="mt-2" />,
+        p: (props) => <p {...props} className="inline text-justify" />,
+        li: (props) => (
+          <li {...props} className="mt-2 !list-inside !list-decimal" />
+        ),
+        a: (props) => (
+          <a
+            target="_blank"
+            {...props}
+            className="hover:underline text-blue-600"
+          />
+        ),
       }}
     />
   );

@@ -101,6 +101,8 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
           <MarkDown source={description} />
         </div>
 
+        <Separator className="sm:hidden block" />
+
         <div className="w-full sm:w-auto sm:sticky top-12 md:top-4 md:px-2 md:py-4 rounded-full md:bg-foreground flex flex-row sm:flex-col justify-evenly sm:justify-normal gap-4 md:text-background">
           <ToolTip tooltip="Demo" side="left">
             <Link href={demo} target="_blank">
@@ -108,7 +110,7 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
             </Link>
           </ToolTip>
 
-          <Separator />
+          <Separator className="hidden sm:block" />
 
           <ToolTip tooltip="GitHub" side="left">
             <Link href={github} target="_blank">

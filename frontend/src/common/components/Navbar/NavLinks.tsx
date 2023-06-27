@@ -47,7 +47,10 @@ const NavLinks = () => {
     <NavigationMenu>
       <NavigationMenuList className="w-[500px]">
         {pages.map(({ isSeparateChild, items, title }) => (
-          <NavigationMenuItem key={title}>
+          <NavigationMenuItem
+            className="rounded-lg border-2 border-border"
+            key={title}
+          >
             {isSeparateChild ? (
               <>
                 <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
