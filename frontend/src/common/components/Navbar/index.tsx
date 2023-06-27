@@ -1,6 +1,6 @@
 import React from "react";
 import { MobileNavbar } from "./MobileNavbar";
-import { NavLinks } from "./NavLinks";
+import NavLinks from "./NavLinks";
 import ThemeButton from "@components/ThemeButton";
 
 const Navbar = ({ theme = "dark" }) => {

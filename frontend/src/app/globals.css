@@ -147,7 +147,7 @@ html {
 }
 
 .parallax-text {
-  @apply h-20 sm:h-28 !relative text-center pd flex flex-col items-center justify-center bg-noise;
+  @apply w-full h-20 sm:h-28 !relative text-center pd flex flex-col items-center justify-center bg-noise;
 }
 
 .parallax-text h1 {
@@ -157,7 +157,8 @@ html {
   @apply text-[40px] sm:text-8xl text-background tracking-widest sm:mt-2 -z-10 font-black absolute uppercase;
 }
 
-.parallax-text h2 {
+.parallax-text h2,
+.parallax-text h3 {
   @apply font-bold z-10 uppercase tracking-widest;
 }
 

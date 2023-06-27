@@ -1,50 +1,78 @@
 "use client";
 
+import * as React from "react";
 import Link from "next/link";
+
+import { cn } from "@lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@components/ui/navigation-menu";
 import { pages } from "./pages";
-import clsx from "clsx";
-import { usePathname } from "@hooks/usePathname";
 
-const Wrapper = {
-  Separate: ({ children }: { children: React.ReactNode }) => (
-    <div className="p-2 flex items-center rounded-full bg-black text-white gap-1">
-      {children}
-    </div>
-  ),
-
-  Group: ({ children }: { children: React.ReactNode }) => (
-    <div className="p-2 flex items-center rounded-full bg-black text-white">
-      <div className="group flex items-center gap-1">{children}</div>
-    </div>
-  ),
-};
-
-export const NavLinks = () => {
-  const { pathname } = usePathname();
-
+const ListItem = React.forwardRef<
+  React.ElementRef<typeof Link>,
+  React.ComponentPropsWithoutRef<typeof Link>
+>(({ className, title, children, ...props }, ref) => {
   return (
-    <>
-      {pages.map(({ isSeparateChild, items }, index) => {
-        const ComponentWrapper = isSeparateChild
-          ? Wrapper.Separate
-          : Wrapper.Group;
-        return (
-          <ComponentWrapper key={index}>
-            {items.map(({ name, href }) => (
-              <Link
-                key={name}
-                href={href}
-                className={clsx(
-                  "font-bold py-2 px-4 transition-all hover:!opacity-100 hover:!text-black group-hover:bg-transparent group-hover:text-white group-hover:opacity-60 duration-300 hover:!bg-[#fbe8de] rounded-full",
-                  pathname === href && "bg-[#fbe8de] text-black"
-                )}
+    <li>
+      <NavigationMenuLink asChild>
+        <Link
+          ref={ref}
+          className={cn(
+            "block select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+
+          <p className="text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </Link>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+
+const NavLinks = () => {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList className="w-[500px]">
+        {pages.map(({ isSeparateChild, items, title }) => (
+          <NavigationMenuItem key={title}>
+            {isSeparateChild ? (
+              <>
+                <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="rotate-180 grid gap-3 p-4 md:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    {items.map(({ name, href, description }) => (
+                      <ListItem key={name} href={href} title={name}>
+                        {description}
+                      </ListItem>
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </>
+            ) : (
+              <NavigationMenuLink
+                asChild
+                className={navigationMenuTriggerStyle()}
               >
-                {name}
-              </Link>
-            ))}
-          </ComponentWrapper>
-        );
-      })}
-    </>
+                <Link href={items[0].href || ""}>{title}</Link>
+              </NavigationMenuLink>
+            )}
+          </NavigationMenuItem>
+        ))}
+      </NavigationMenuList>
+    </NavigationMenu>
   );
 };
+
+export default NavLinks;
