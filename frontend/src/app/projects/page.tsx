@@ -28,7 +28,7 @@ const ViewProjects: React.FC<Props> = async ({ searchParams }) => {
 
   const projectsQuery = isStarred
     ? `*[_type == "projects" && starred == true]`
-    : `*[_type == "projects"]`;
+    : `*[_type == "projects"] | order(starred asc)`;
   const projects = (await client.fetch(projectsQuery)) as Project[];
 
   return (
@@ -36,7 +36,7 @@ const ViewProjects: React.FC<Props> = async ({ searchParams }) => {
       <div className="parallax-text">
         <h1>Projects</h1>
 
-        <WavyText as="h2" text="Projects" />
+        <WavyText as="h2" text={tab || "Projects"} />
       </div>
 
       <div className="container grid gap-2">

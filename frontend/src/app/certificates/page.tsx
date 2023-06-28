@@ -9,7 +9,7 @@ const CertificatePage = async () => {
   const certificatesQuery = `*[_type == "certificates"][]{
     ...,
     "image": images.asset->url
-  } | order(no, asc)`;
+  } | order(no asc)`;
   const certificates = (await client.fetch(certificatesQuery)) as Certificate[];
 
   return (
