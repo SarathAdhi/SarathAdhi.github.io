@@ -55,7 +55,7 @@ const NavLinks = () => {
               <>
                 <NavigationMenuTrigger>{title}</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="rotate-180 grid gap-3 p-4 md:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                  <ul className="rotate-180 grid gap-3 p-4 md:w-[500px] lg:grid-cols-2">
                     {items.map(({ name, href, description }) => (
                       <ListItem key={name} href={href} title={name}>
                         {description}
