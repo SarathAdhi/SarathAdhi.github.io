@@ -29,7 +29,7 @@ const ParallaxMouseMove = () => {
   return (
     <div
       id="parallax-wrap"
-      className="parallax-wrap duration-100 transition-all"
+      className="parallax-wrap duration-200 transition-all"
     >
       <Image
         draggable={false}

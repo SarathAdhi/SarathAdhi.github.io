@@ -72,7 +72,7 @@ const ContactSection = () => {
         variants={container}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: false }}
       >
         <Input
           label="Name"
