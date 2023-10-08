@@ -32,7 +32,7 @@ const ViewProjects: React.FC<Props> = async ({ searchParams }) => {
   const projects = (await client.fetch(projectsQuery)) as Project[];
 
   return (
-    <div className="md:pb-20">
+    <div className="md:pb-40">
       <div className="parallax-text">
         <h1>Projects</h1>
 

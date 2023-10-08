@@ -24,11 +24,9 @@ const ProjectsCard: React.FC<Props> = ({
 
   const variants = {
     hidden: {
-      opacity: 0,
       scale: 0,
     },
     show: {
-      opacity: 1,
       scale: 1,
     },
   };
@@ -38,7 +36,7 @@ const ProjectsCard: React.FC<Props> = ({
   return (
     <MotionLink
       href={`/projects/${id}`}
-      className="relative w-full pd space-y-4"
+      className="duration-200 border border-transparent hover:border-border hover:rounded-md w-full pd space-y-4"
       onHoverStart={() => {
         if (showImages) return;
         setShowImages(true);

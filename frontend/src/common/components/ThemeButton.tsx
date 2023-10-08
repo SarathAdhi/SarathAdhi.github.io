@@ -25,7 +25,7 @@ const ThemeButton = ({ _theme = "dark", className = "" }) => {
         setTheme(newTheme);
       }}
       className={cn(
-        "text-lg py-2 px-4 transition-all hover:!opacity-100 hover:!text-black group-hover:bg-transparent group-hover:text-white group-hover:opacity-60 duration-300 hover:!bg-[#fbe8de] rounded-full",
+        "text-lg px-4 py-5 transition-all border-2 duration-300 hover:!bg-foreground hover:text-background rounded-full",
         className
       )}
     >

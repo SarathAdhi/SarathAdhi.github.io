@@ -96,25 +96,25 @@ const ViewProject: React.FC<Props> = async ({ params }) => {
 
       <Separator />
 
-      <div className="flex items-center sm:items-start flex-col-reverse sm:flex-row gap-4 sm:gap-8">
+      <div className="flex items-center md:items-start flex-col-reverse md:flex-row gap-4 md:gap-8">
         <div className="space-y-2">
           <MarkDown source={description} />
         </div>
 
-        <Separator className="sm:hidden block" />
+        <Separator className="md:hidden block" />
 
-        <div className="w-full sm:w-auto sm:sticky top-12 md:top-4 md:px-2 md:py-4 rounded-full md:bg-foreground flex flex-row sm:flex-col justify-evenly sm:justify-normal gap-4 md:text-background">
+        <div className="w-full md:w-auto md:sticky top-12 md:top-4 md:px-2 md:py-4 rounded-full md:border md:border-foreground flex flex-row md:flex-col justify-evenly md:justify-normal gap-4 md:text-background">
           <ToolTip tooltip="Demo" side="left">
             <Link href={demo} target="_blank">
-              <ExternalLinkIcon size={30} />
+              <ExternalLinkIcon size={30} className="text-foreground" />
             </Link>
           </ToolTip>
 
-          <Separator className="hidden sm:block" />
+          <Separator className="hidden md:block" />
 
           <ToolTip tooltip="GitHub" side="left">
             <Link href={github} target="_blank">
-              <GithubIcon size={30} />
+              <GithubIcon size={30} className="text-foreground" />
             </Link>
           </ToolTip>
         </div>
