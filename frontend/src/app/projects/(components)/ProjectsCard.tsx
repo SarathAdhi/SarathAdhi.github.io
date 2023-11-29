@@ -36,7 +36,7 @@ const ProjectsCard: React.FC<Props> = ({
   return (
     <MotionLink
       href={`/projects/${id}`}
-      className="duration-200 border border-transparent hover:border-border hover:rounded-md w-full pd space-y-4"
+      className="relative duration-200 border border-transparent hover:border-border hover:rounded-md w-full pd space-y-4"
       onHoverStart={() => {
         if (showImages) return;
         setShowImages(true);
@@ -46,7 +46,7 @@ const ProjectsCard: React.FC<Props> = ({
         setShowImages(false);
       }}
     >
-      <div className="relative flex items-center gap-10">
+      <div className="flex items-center gap-10">
         <div className="space-y-2">
           <h2 className="flex items-start gap-4">
             <span className="text-base">
@@ -89,7 +89,7 @@ const ProjectsCard: React.FC<Props> = ({
         )}
       </div>
 
-      <ExternalLinkIcon className="hidden sm:block absolute top-0 right-0" />
+      <ExternalLinkIcon className="hidden sm:block absolute top-0 right-2" />
     </MotionLink>
   );
 };
