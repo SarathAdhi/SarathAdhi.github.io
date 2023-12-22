@@ -2,7 +2,6 @@ import { ToolTip } from "@components/ui/tooltip";
 import { cn } from "@lib/utils";
 import { socials } from "@utils/constants";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const MyDetails = ({ containerClassName = "" }) => {
@@ -49,7 +48,7 @@ const MyDetails = ({ containerClassName = "" }) => {
           className={cn(containerClassName, "flex justify-around items-center")}
         >
           {socials.map(({ name, href, Icon }) => (
-            <ToolTip key={name} tooltip={name} side="bottom">
+            <ToolTip key={name} tooltip={name} side="top">
               <a href={href} target="_blank">
                 <Icon />
               </a>

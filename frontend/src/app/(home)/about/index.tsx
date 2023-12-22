@@ -1,9 +1,5 @@
 import { Button } from "@components/ui/button";
-import { ToolTip } from "@components/ui/tooltip";
 import { cn } from "@lib/utils";
-import { socials } from "@utils/constants";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import WavyText from "@components/WavyText";
 import AboutMeNote from "./(modules)/AboutMeNote";

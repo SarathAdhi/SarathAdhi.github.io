@@ -84,17 +84,8 @@
   * {
     @apply border-border;
   }
-  @font-face {
-    font-family: "Hubot Sans";
-    src: url("/fonts/Hubot-Sans.woff2") format("woff2 supports variations"),
-      url("/fonts/Hubot-Sans.woff2") format("woff2-variations");
-    font-weight: 200 900;
-    font-stretch: 75% 125%;
-    font-display: swap;
-  }
   html {
     @apply bg-background text-foreground !scroll-smooth;
-    font-family: "Hubot Sans" !important;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   h1 {
@@ -127,7 +118,6 @@
 }
 
 .text-fade {
-  /* background: linear-gradient(to right, #ffff, #303030); */
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
@@ -158,11 +148,7 @@
 }
 
 .parallax-wrap {
-  z-index: -1;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  @apply -z-[1] absolute w-full h-screen overflow-hidden;
 }
 
 .parallax-wrap img {

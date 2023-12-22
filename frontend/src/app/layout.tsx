@@ -5,6 +5,7 @@ import { cookies } from "next/dist/client/components/headers";
 import Toast from "@components/Toast";
 import type { Metadata } from "next/index";
 import { Analytics } from "@vercel/analytics/react";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: "Sarath Adhithya",
@@ -24,6 +25,11 @@ export const metadata: Metadata = {
   themeColor: "#111",
 };
 
+const myFont = localFont({
+  src: "../../public/fonts/Hubot-Sans.woff2",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -32,12 +38,7 @@ export default function RootLayout({
   const theme = cookies().get("theme-webpage");
 
   return (
-    <html lang="en" className={cn(theme?.value || "dark")}>
-      <head>
-        <link rel="preload" href="/fonts/Hubot-Sans.woff2" />
-        <link rel="./globals.css" href="/fonts/Hubot-Sans.woff2" as="style" />
-      </head>
-
+    <html lang="en" className={cn(theme?.value || "dark", myFont.className)}>
       <body className={cn("p-0 flex flex-col min-h-screen")}>
         <Navbar theme={theme?.value} />
 

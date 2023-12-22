@@ -58,7 +58,7 @@ const ProjectsCard: React.FC<Props> = ({
 
           <div className="ml-8 flex items-center flex-wrap gap-2 sm:gap-4">
             {techstack.map(({ name, image }) => (
-              <ToolTip key={name} tooltip={name} side="bottom">
+              <ToolTip key={name} tooltip={name} side="top">
                 <div className="duration-200 hover:scale-125 w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 dark:bg-white p-1 sm:p-2 rounded-full">
                   <Image
                     className="w-full h-full rounded-md"

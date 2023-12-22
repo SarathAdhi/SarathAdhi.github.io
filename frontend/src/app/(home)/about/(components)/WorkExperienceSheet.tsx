@@ -14,10 +14,11 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import Image from "next/image";
 import Link from "next/link";
 import { ScrollArea } from "@components/ui/scroll-area";
+
+import "react-vertical-timeline-component/style.min.css";
 
 type Props = {
   workExp: WorkExperience[];
