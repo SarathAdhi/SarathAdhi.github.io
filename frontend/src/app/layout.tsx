@@ -33,6 +33,11 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={cn(theme?.value || "dark")}>
+      <head>
+        <link rel="preload" href="/fonts/Hubot-Sans.woff2" />
+        <link rel="./globals.css" href="/fonts/Hubot-Sans.woff2" as="style" />
+      </head>
+
       <body className={cn("p-0 flex flex-col min-h-screen")}>
         <Navbar theme={theme?.value} />
 
