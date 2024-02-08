@@ -6,6 +6,7 @@ import Toast from "@components/Toast";
 import type { Metadata } from "next/index";
 import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
+import TopAlert from "@components/TopAlert";
 
 export const metadata: Metadata = {
   title: "Sarath Adhithya",
@@ -40,6 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(theme?.value || "dark", myFont.className)}>
       <body className={cn("p-0 flex flex-col min-h-screen")}>
+        <TopAlert />
+
         <Navbar theme={theme?.value} />
 
         {children}
