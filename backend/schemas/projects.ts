@@ -28,6 +28,19 @@ export default {
     },
 
     {
+      name: 'overview',
+      type: 'string',
+      title: 'Overview',
+      description: 'A short one-liner description of the project.',
+    },
+
+    {
+      name: 'finishedAt',
+      type: 'date',
+      title: 'Finished At',
+    },
+
+    {
       name: 'images',
       title: 'Images',
       type: 'array',

@@ -28,7 +28,7 @@ const ViewProjects: React.FC<Props> = async ({ searchParams }) => {
 
   const projectsQuery = isStarred
     ? `*[_type == "projects" && starred == true]`
-    : `*[_type == "projects"] | order(starred asc)`;
+    : `*[_type == "projects"] | order(finishedAt desc)`;
   const projects = (await client.fetch(projectsQuery)) as Project[];
 
   return (
